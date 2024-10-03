@@ -227,7 +227,7 @@ if __name__ == "__main__":
     main()
 
 # Let's create conflicts
-# Group 1 is not best
+# Group 1 best
 # Group 2 is not best
 # Group 3 is not best
 # The teachers are the best

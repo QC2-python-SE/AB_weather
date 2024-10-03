@@ -189,6 +189,15 @@ def calculate_average(filtered_values):
     average = total_sum / count
     return average
 
+def calculate_min_max(filtered_values):
+    
+    
+    total_sum = np.max(filtered_values)
+    count = (filtered_values)
+    
+    average = total_sum / count
+    return average
+
 
 def main():
     """

@@ -179,7 +179,15 @@ def select_data_in_date_interval(dataframe, start_date, end_date, target_column,
     # Return the filtered dates and target column
     return filtered_df[date_column], filtered_df[target_column]
 
-
+def calculate_average(filtered_values):
+    if len(filtered_values) == 0:
+        return None  # Return None or handle empty data case as needed
+    
+    total_sum = sum(filtered_values)
+    count = len(filtered_values)
+    
+    average = total_sum / count
+    return average
 
 
 def main():

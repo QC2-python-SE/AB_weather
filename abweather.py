@@ -193,7 +193,6 @@ def calculate_average(filtered_values):
 
 # Placeholder for function 2
 
-
 def main():
     """
     Main function to execute the script.

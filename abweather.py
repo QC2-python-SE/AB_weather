@@ -195,6 +195,13 @@ def calculate_property_1(filtered_values):
     
     total_sum = sum(filtered_values)
     count = len(filtered_values)
+
+    
+def calculate_min_max(filtered_values):
+    
+    
+    total_sum = np.max(filtered_values)
+    count = (filtered_values)
     
     average = total_sum / count
     return average

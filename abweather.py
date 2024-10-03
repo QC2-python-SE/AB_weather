@@ -183,10 +183,8 @@ def calculate_average(filtered_values):
     if len(filtered_values) == 0:
         return None  # Return None or handle empty data case as needed
     
-    total_sum = sum(filtered_values)
-    count = len(filtered_values)
-    
-    average = total_sum / count
+    average = np.average(filtered_values)
+
     return average
 
 

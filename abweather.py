@@ -187,6 +187,7 @@ def calculate_average(filtered_values):
     count = len(filtered_values)
     
     average = total_sum / count
+    print(average)
     return average
 
 

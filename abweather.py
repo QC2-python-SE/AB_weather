@@ -191,6 +191,8 @@ def calculate_average(filtered_values):
 
 # Placeholder for function 1
 
+def function_1():
+    return None
 
 # Placeholder for function 2
 

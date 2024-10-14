@@ -2,7 +2,7 @@
 
 from numbers import Number
 from typing import List
-
+# annoying merge
 
 def calculate_variance(data: List[Number]) -> Number:
     if not isinstance(data, List):

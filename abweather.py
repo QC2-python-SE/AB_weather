@@ -160,6 +160,15 @@ def calculate_average(filtered_values):
     return average
  
 # Placeholder for Standard Deviation
+def calculate_standard_deviation(filtered_values):
+    if len(filtered_values) == 0:
+        return None  # Return None or handle empty data case as needed
+    
+    average = calculate_average(filtered_values)
+    squared_diff_sum = sum([(value - average) ** 2 for value in filtered_values])
+    variance = squared_diff_sum / len(filtered_values)
+    standard_deviation = variance ** 0.5
+    return standard_deviation
  
 # Placeholder for Range
  

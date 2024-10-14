@@ -164,7 +164,19 @@ def calculate_average(filtered_values):
 # Placeholder for Range
  
 # Placeholder for Standard Median
- 
+
+def median(x: list):
+    
+    # sort the list into ascending order
+
+    x = x.sort()
+
+    if len(x) % 2 == 0:
+        return (x[int(len(x) // 2)] + x[int(len(x) // 2 + 1)]) / 2
+
+    if len(x) % 2 == 1:
+        return x[int((len(x) + 1) // 2)]
+
 # Placeholder for Variance
  
  

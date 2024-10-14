@@ -27,6 +27,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 import warnings
 import copy
+from numbers import Number
+from typing import List
 
 # Ignore warnings for clean output
 warnings.filterwarnings('ignore')
@@ -166,7 +168,13 @@ def calculate_average(filtered_values):
 # Placeholder for Standard Median
  
 # Placeholder for Variance
- 
+ def calculate_variance(data: List[Number]) -> Number:
+    if not isinstance(data, List):
+        raise TypeError(f"data should be a list of numbers, not {type(data).__name__}")
+    if not len(data) > 0:
+        raise ValueError("data should contain more than zero points")
+    mean = sum(data)/len(data)
+    return sum((x - mean)**2 for x in data)/len(data)
  
 def main():
     """

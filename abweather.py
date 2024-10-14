@@ -168,7 +168,7 @@ def calculate_average(filtered_values):
 # Placeholder for Standard Median
  
 # Placeholder for Variance
- def calculate_variance(data: List[Number]) -> Number:
+def calculate_variance(data: List[Number]) -> Number:
     if not isinstance(data, List):
         raise TypeError(f"data should be a list of numbers, not {type(data).__name__}")
     if not len(data) > 0:

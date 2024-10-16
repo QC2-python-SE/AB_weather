@@ -166,6 +166,9 @@ def calculate_range(filtered_values):
     if not filtered_values:           # checks if list is empty
         raise ValueError("Arrr, ye can't find treasure in an empty chest, and ye can't find range in an empty list!")
     
+    if (all(not isinstance(item, (int, float)) for item in filtered_values)):
+        raise ValueError("Ah, the range of letters is boundless, but the range of charactors is meaningless.")
+    
     r_range = max(filtered_values) - min(filtered_values)
 
     return r_range

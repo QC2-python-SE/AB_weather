@@ -162,6 +162,13 @@ def calculate_average(filtered_values):
 # Placeholder for Standard Deviation
  
 # Placeholder for Range
+def calculate_range(filtered_values):
+    if not filtered_values:           # checks if list is empty
+        raise ValueError("Arrr, ye can't find treasure in an empty chest, and ye can't find range in an empty list!")
+    
+    r_range = max(filtered_values) - min(filtered_values)
+
+    return r_range
  
 # Placeholder for Standard Median
  

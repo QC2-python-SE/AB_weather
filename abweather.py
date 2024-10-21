@@ -200,9 +200,24 @@ def median(x: list):
 
 # Placeholder for Variance
 def calculate_variance(data: List[Number]) -> Number:
+    """
+    Calculate variance of data.
+    
+    Parameters
+    ----------
+    data : List[Number]
+        List of numbers to calculate variance of.
+    
+    Returns
+    -------
+    Number
+        Variance of data.
+    """
     if not isinstance(data, List):
+        # raise TypeError if data is not a list
         raise TypeError(f"data should be a list of numbers, not {type(data).__name__}")
     if not len(data) > 0:
+        # raise ValueError if data is empty
         raise ValueError("data should contain more than zero points")
     mean = sum(data)/len(data)
     return sum((x - mean)**2 for x in data)/len(data)

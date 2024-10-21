@@ -210,12 +210,28 @@ def calculate_range(filtered_values: list):
  
 # Placeholder for Standard Median
 
-# a small change locally (wasn't meant to push sorry Abbie)
-def median(x: list):
 
-    # sort the list into ascending order
+def median(x: list):
+    """
+    Computes the median of a list of floats.
+
+    Args:
+        x (list): The list of floats.
+    
+    Returns:
+        float: The median of list `x`.
+    """
+
+    if not isinstance(x, list):
+        raise TypeError(f"Input should be a list of numbers, not {type(x).__name__}.")
+    for i in x:
+        if not isinstance(i, float):
+            raise TypeError(f"List entry should be a float, not {type(i).__name__}.")
+    
+    # Sort the list into ascending order.
     x.sort()
 
+    # Checks the parity of the length of the list.
     if len(x) % 2 == 0:
         return (x[len(x)//2-1] + x[len(x) // 2]) / 2
 

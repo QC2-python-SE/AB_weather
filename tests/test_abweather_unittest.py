@@ -7,7 +7,7 @@ import os
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_variance
+from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_standard_deviation, calculate_variance
 
 class TestWeatherPrediction(unittest.TestCase):
 
@@ -55,6 +55,11 @@ class TestWeatherPrediction(unittest.TestCase):
         empty_values = []
         result_empty = calculate_average(empty_values)
         self.assertIsNone(result_empty)
+
+    def test_calculate_standard_deviation(self):
+        values = [2, 4, 4, 4, 5, 5, 7, 9] 
+        result = calculate_standard_deviation(values)
+        self.assertEqual(result, 2)
 
     def test_calculate_variance(self):
         self.assertAlmostEqual(calculate_variance([-1.0,1.0]),1)

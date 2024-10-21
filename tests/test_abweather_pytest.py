@@ -6,7 +6,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_variance
+from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_standard_deviation, calculate_variance
 
 @pytest.fixture
 def mock_data():
@@ -63,6 +63,11 @@ def test_calculate_average():
     empty_values = []
     result_empty = calculate_average(empty_values)
     assert result_empty is None
+
+def test_standard_deviation():
+    values = [2, 4, 4, 4, 5, 5, 7, 9]  
+    result = calculate_standard_deviation(values)
+    assert result == 2
 
 def test_calculate_variance():
     assert abs(calculate_variance([-1.0,1.0]) - 1) < 1e-20

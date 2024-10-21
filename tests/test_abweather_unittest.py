@@ -7,7 +7,7 @@ import os
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_variance
+from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_variance, calculate_range
 
 class TestWeatherPrediction(unittest.TestCase):
 
@@ -58,6 +58,19 @@ class TestWeatherPrediction(unittest.TestCase):
 
     def test_calculate_variance(self):
         self.assertAlmostEqual(calculate_variance([-1.0,1.0]),1)
+    
+    def test_range(self):
+        """
+        Function that tests whether the range gives the expected output when inputting valid lists, or the expected exceptions.
+        """
+
+        my_list = [1, 2, 3, 4]
+        self.assertEqual(calculate_range(my_list), 3)
+
+        # testing ValueError raised for empty lists
+        self.assertRaises(ValueError, lambda: calculate_range([]))
+        # testing TypeError raised for wrong types of lists
+        self.assertRaises(TypeError, lambda: calculate_range(["Denmark", "California"]))
 
     def tearDown(self):
         # Clean up the test CSV file after each test

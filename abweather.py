@@ -165,17 +165,17 @@ def calculate_average(filtered_values):
  
 # Placeholder for Standard Median
 
+# a small change locally (wasn't meant to push sorry Abbie)
 def median(x: list):
-    
-    # sort the list into ascending order
 
-    x = x.sort()
+    # sort the list into ascending order
+    x.sort()
 
     if len(x) % 2 == 0:
-        return (x[int(len(x) // 2)] + x[int(len(x) // 2 + 1)]) / 2
+        return (x[len(x)//2-1] + x[len(x) // 2]) / 2
 
     if len(x) % 2 == 1:
-        return x[int((len(x) + 1) // 2)]
+        return x[len(x)//2]
 
 # Placeholder for Variance
  

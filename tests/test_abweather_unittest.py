@@ -7,7 +7,7 @@ import os
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abweather import read_dataset, clean_data, train_model, calculate_average
+from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_standard_deviation
 
 class TestWeatherPrediction(unittest.TestCase):
 
@@ -55,6 +55,11 @@ class TestWeatherPrediction(unittest.TestCase):
         empty_values = []
         result_empty = calculate_average(empty_values)
         self.assertIsNone(result_empty)
+    
+    def test_calculate_standard_deviation(self):
+        values = [2, 4, 4, 4, 5, 5, 7, 9] 
+        result = calculate_standard_deviation(values)
+        self.assertEqual(result, 2)
 
     def tearDown(self):
         # Clean up the test CSV file after each test
@@ -63,3 +68,6 @@ class TestWeatherPrediction(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+

@@ -173,12 +173,27 @@ def calculate_standard_deviation(filtered_values):
     return standard_deviation
  
 # Placeholder for Range
-def calculate_range(filtered_values):
-    if not filtered_values:           # checks if list is empty
+def calculate_range(filtered_values: list):
+    '''
+    
+    Take values in a numrical list, calculate the range between extremal values.
+
+    Args:
+        filtered_values (list): A list of numbers.
+
+    Returns:
+        float: Range of the list.
+        
+    Raises:
+        ValueError: If list is empty
+        TypeError: If the list contains elements that are not float or int
+    '''
+    
+    if not filtered_values:  # checks if list is empty
         raise ValueError("Arrr, ye can't find treasure in an empty chest, and ye can't find range in an empty list!")
     
-    if (all(not isinstance(item, (int, float)) for item in filtered_values)):
-        raise ValueError("Ah, the range of letters is boundless, but the range of charactors is meaningless.")
+    if (all(not isinstance(item, (int, float)) for item in filtered_values)):  # checks if the list is float or int
+        raise TypeError("Ah, the range of letters is boundless, but the range of charactors is meaningless.")
     
     r_range = max(filtered_values) - min(filtered_values)
 

@@ -6,7 +6,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_standard_deviation, calculate_variance
+from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_standard_deviation, calculate_variance, calculate_range
 
 @pytest.fixture
 def mock_data():
@@ -71,3 +71,9 @@ def test_standard_deviation():
 
 def test_calculate_variance():
     assert abs(calculate_variance([-1.0,1.0]) - 1) < 1e-20
+
+def test_range():
+    assert calculate_range([1, 2, 3, 4]) == 3  # testing for expected output
+    assert calculate_range([2, 2, 2, 2]) == 0  # testing for a constant list
+    with pytest.raises(ValueError, match = "Arrr, ye can't find treasure in an empty chest, and ye can't find range in an empty list!"):  # testing for empty list error
+        calculate_range([])

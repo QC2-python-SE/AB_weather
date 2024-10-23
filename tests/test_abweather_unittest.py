@@ -7,7 +7,7 @@ import os
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_standard_deviation, calculate_variance, calculate_range
+from abweather import read_dataset, clean_data, train_model, calculate_average, median, calculate_standard_deviation, calculate_variance, calculate_range
 
 class TestWeatherPrediction(unittest.TestCase):
 
@@ -81,6 +81,12 @@ class TestWeatherPrediction(unittest.TestCase):
         # Clean up the test CSV file after each test
         if os.path.exists(self.test_file):
             os.remove(self.test_file)
+
+    def test_median(self):
+        lst_odd = [2, 5, 6, 3, 7]
+        lst_even = [6, 3, 1, 9]
+        self.assertEqual(median(lst_odd), 6)
+        self.assertEqual(median(lst_even), 4.5)
 
 if __name__ == '__main__':
     unittest.main()

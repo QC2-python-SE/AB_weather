@@ -6,7 +6,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from abweather import read_dataset, clean_data, train_model, calculate_average, calculate_standard_deviation, calculate_variance, calculate_range
+from abweather import read_dataset, clean_data, train_model, calculate_average, median, calculate_standard_deviation, calculate_variance, calculate_range
 
 @pytest.fixture
 def mock_data():
@@ -63,6 +63,12 @@ def test_calculate_average():
     empty_values = []
     result_empty = calculate_average(empty_values)
     assert result_empty is None
+
+def test_median():
+    lst_odd = [2, 5, 6, 3, 7]
+    lst_even = [6, 3, 1, 9]
+    assert median(lst_odd) == 6
+    assert median(lst_even) == 4.5
 
 def test_standard_deviation():
     values = [2, 4, 4, 4, 5, 5, 7, 9]  
